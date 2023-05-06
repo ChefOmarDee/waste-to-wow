@@ -1,8 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import openai from '../Utils/openai';
+import { withApiAuthRequired } from '@auth0/nextjs-auth0';
 
-export default async function handler(
+
+ async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -17,3 +19,4 @@ console.log(completion.data.choices[0].text);
 
   res.status(200).send(completion.data.choices[0].text)
 }
+export default withApiAuthRequired(handler)

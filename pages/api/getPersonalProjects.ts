@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import mongoose, { Model } from 'mongoose';
+import { withApiAuthRequired } from '@auth0/nextjs-auth0';
 
 type projectParams = {
   projectName: string;
@@ -36,7 +37,7 @@ if (mongoose.models[modelName]) {
   _projectModel = mongoose.model<projectParams>(modelName, projectSchema);
 }
 
-export default async function handler(
+ async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -56,3 +57,4 @@ export default async function handler(
     res.status(400).json({message:"no route"});
   }
 }
+export default withApiAuthRequired(handler)

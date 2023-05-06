@@ -90,7 +90,7 @@ const SearchProject=()=>{
               </label>
             </div>
           ))}
-          <button type="submit">Submit</button>
+          <center><button type="submit">Submit</button></center>
     </div>
     </form>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

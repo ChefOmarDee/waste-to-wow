@@ -1,5 +1,7 @@
 import React,{useState, useEffect} from "react"
 import axios from 'axios';
+import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+
 
 type MaterialType = 'Paper' | 'Cardboard' | 'Plastics' | 'Glass' | 'Aluminum cans' | 'LDPE (low-density polyethylene) bags and films' | 'PP (polypropylene) containers and packaging' | 'Polystyrene (styrofoam)' | 'Newspapers and magazines' | 'Corrugated cardboard' | 'Beverage cartons (milk, juice, etc.)' | 'Scrap metal' | 'Textiles (clothing, bedding, etc.)' | 'Tires';
 
@@ -87,3 +89,4 @@ const AIProject=()=>{
     )
 }
 export default AIProject;
+export const getServerSideProps = withPageAuthRequired()

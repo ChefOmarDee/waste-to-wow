@@ -98,4 +98,3 @@ const ViewPersonalProject = () => {
 
 export default ViewPersonalProject;
 export const getServerSideProps = withPageAuthRequired()
-
