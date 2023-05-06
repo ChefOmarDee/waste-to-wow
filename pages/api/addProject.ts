@@ -46,18 +46,7 @@ async function handler(
   if (req.method === 'POST') {
   const { projectName, selectedMaterials, projectSteps, imageNames, mainImageName, userID,userName } = req.body as projectParams;
 
-  console.log('Project Name:', projectName);
-  console.log('Selected Materials:', selectedMaterials);
-  console.log('Project Steps:', projectSteps);
-  console.log('Image Names:', imageNames);
-  console.log('Main Image Name:', mainImageName);
-  console.log('UserID:', userID);
-  console.log('UserName:', userName);
-
-
-
   try {
-    console.log(req.body)
     const newProject = new projectModel({
       projectName:projectName,
       projectSteps:projectSteps,

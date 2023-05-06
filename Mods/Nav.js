@@ -38,11 +38,19 @@ const Nav = () => {
           </Link>
         </div>
 
+        <div className="flex items-center w-1/2 justify-center">
+          <Link href="/User">
+            <div className={`${router.pathname === "/User" ? "font-bold" : ""} ml-2 text-lg hover:text-gray-400`}>
+              My Account
+            </div>
+          </Link>
+        </div>
+
 
         <div className="flex items-center w-1/2 justify-center">
           <Link href="/ViewPersonal">
             <div className={`${router.pathname === "/ViewPersonal" ? "font-bold" : ""} ml-2 text-lg hover:text-gray-400`}>
-            View Project
+            My Projects
             </div>
           </Link>
         </div>

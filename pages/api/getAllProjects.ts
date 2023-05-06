@@ -43,7 +43,6 @@ async function handler(
 ) {
   if (req.method === 'POST') {
   try {
-    console.log(req.body.userID)
     const newProject =await _projectModel.find()
     res.status(200).send(newProject)
   } catch (error) {

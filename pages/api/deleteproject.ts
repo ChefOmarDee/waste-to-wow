@@ -55,7 +55,6 @@ async function handler(
     const { projectName, projectImages, projectMainImage, deleteImageToken} = req.body.data;
     
     if (deleteImageToken) {
-      console.log("stuff happened");
 
       await S3.deleteObject({
         Bucket: process.env.AWS_BUCKET_NAME!,
@@ -65,13 +64,11 @@ async function handler(
       const doc = await ProjectModel.findOne({ projectName: projectName });
 
       if (doc) {
-        console.log(doc)
         if(!projectImages.includes(doc.projectMainImage)){
           doc.projectMainImage = '';
         }
         doc.projectImages = projectImages;
         await doc.save();
-        console.log("Doc updated successfully");
       }else{
         console.log("no doc")
       }

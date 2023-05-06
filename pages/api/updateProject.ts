@@ -57,10 +57,8 @@ async function handler(
 
     try {
       const data= req.body;
-      console.log(data)
       const doc = await _ProjectModel.findOne({ projectName: data.oldProjectName });
       if (doc) {
-        console.log(doc)
         doc.projectName = data.name;
         doc.projectSteps = data.projectSteps;
         doc.projectMaterials = data.projectMaterials;

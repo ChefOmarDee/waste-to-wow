@@ -55,7 +55,6 @@ const Add=()=>{
             userID:(user?.sub).replace("|",""),
             userName:user?.name
           }
-          console.log(user?.name)
           await axios.post('/api/addProject', data)
         }
       }
@@ -66,7 +65,6 @@ const Add=()=>{
           if (file){
             setMainImage(file)
             setMainImageName(user?.sub+file.name)
-            console.log(user?.sub+file.name)
             setImages([...images, (file)]);
             setImageNames([...imageNames, (user?.sub+file.name)]);
           }
@@ -81,7 +79,6 @@ const Add=()=>{
       region: process.env.NEXT_PUBLIC_AWS_REGION!,
     });
     if(images?.length){
-      console.log(images.length)
       for (let i = 0; i < images.length; i++) {
         const file = images[i];
         // Create an S3 bucket object key using the current timestamp and the original file name
@@ -97,7 +94,6 @@ const Add=()=>{
         // Upload the file to S3
         await s3.upload(params).promise();
       }
-      console.log(images)
     }
     if (mainImage){
       const file = mainImage;
@@ -109,7 +105,6 @@ const Add=()=>{
           Body: file,
           ContentType: file.type,
         };
-        console.log(params)
         // Upload the file to S3
         await s3.upload(params).promise();
     }

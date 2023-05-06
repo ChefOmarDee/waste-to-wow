@@ -37,7 +37,6 @@ const AIProject=()=>{
 
     const handleSubmit=(e:any)=>{
         e.preventDefault()
-        console.log(selectedMaterials)
 
         const postHandler=async ()=>{
             const data= {
@@ -45,7 +44,6 @@ const AIProject=()=>{
             }
             let res= await axios.post('/api/hello', data)
             setProjects(res.data)
-            console.log(res.data)
         }
         postHandler()
       }

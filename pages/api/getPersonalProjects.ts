@@ -45,7 +45,6 @@ if (mongoose.models[modelName]) {
   // const { userID } = req.body as projectParams;
 
   try {
-    console.log(req.body.userID)
     const newProject =await _projectModel.find({userID:req.body.userID.replace("|","")})
     res.status(200).send(newProject)
   } catch (error) {

@@ -62,7 +62,6 @@ const EditProject = () => {
     if (files){
     setImages([...Array.from(files)]);
     const names = Array.from(files).map(file => user?.sub+file.name);
-    console.log(names)
     setImageNames([...imageNames, ...names]);
     }
   };
@@ -79,7 +78,6 @@ const EditProject = () => {
   };
 
   const postHandler=async()=>{
-      console.log(projectMaterials)
     let _data={
       oldProjectName:data.projectName,
       name,
@@ -88,9 +86,7 @@ const EditProject = () => {
       imageNames,
       mainImageName
     }
-    console.log(data)
-    console.log(imageNames)
-    console.log(_data)
+
 
     await axios.post('/api/updateProject', _data)
   }
@@ -132,7 +128,6 @@ const EditProject = () => {
         // Upload the file to S3
         await s3.upload(params).promise();
       }
-      console.log(images)
     }
     if (mainImage){
       const file = mainImage;
@@ -144,7 +139,6 @@ const EditProject = () => {
           Body: file,
           ContentType: file.type,
         };
-        console.log(params)
         // Upload the file to S3
         await s3.upload(params).promise();
     }
@@ -153,7 +147,6 @@ const EditProject = () => {
 
   };
   const imageDeleteHandler= async(image:String)=>{
-    console.log(image)
     const filteredImageNames = imageNames.filter((imageName) => imageName !== image);
     if(!filteredImageNames.includes(data.projectMainImage)){
       alert("cannot delete main image, try ressigning it first")
@@ -163,7 +156,6 @@ const EditProject = () => {
     }
     else{
       setImageNames(filteredImageNames);
-      console.log(filteredImageNames)
       const payload={
         projectName:data.projectName,
         projectMainImage:image,
@@ -183,7 +175,6 @@ const EditProject = () => {
       projectMainImage: data.projectMainImage
     };
   
-      console.log(payload);
   
       const response = await axios.post('/api/deleteproject', {
         data: payload

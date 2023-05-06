@@ -24,16 +24,13 @@ const ViewPersonalProject = () => {
   useEffect(() => {
     const fetchProjects = async () => {
         if(user?.sub){
-        console.log(user?.sub)
       const data={
         userID:user?.sub
       }
       const res = await axios.post('/api/getPersonalProjects', data);
-      console.log(res.data)
       setProjects(res.data);
     }
     };
-    console.log(user?.sub)
     fetchProjects();
   }, [user?.sub]);
 

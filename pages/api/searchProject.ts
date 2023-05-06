@@ -42,7 +42,6 @@ async function handler(
 ) {
   if (req.method === 'POST') {
   try {
-    console.log(req.body.selectedMaterials)
     const newProject =await _projectModel.find({projectMaterials: { $all: req.body.selectedMaterials}})
     res.status(200).send(newProject)
   } catch (error) {

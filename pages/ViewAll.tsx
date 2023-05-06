@@ -22,10 +22,8 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       const res = await axios.post('/api/getAllProjects');
-      console.log(res.data)
       setProjects(res.data);
     }
-    console.log(user?.sub)
     fetchProjects();
   }, []);
 

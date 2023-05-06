@@ -47,7 +47,6 @@ const SearchProject=()=>{
       
       const handleSubmit=(e:any)=>{
         e.preventDefault()
-        console.log(selectedMaterials)
         const postHandler=async ()=>{
             const data= await {
                 selectedMaterials
@@ -61,10 +60,8 @@ const SearchProject=()=>{
   useEffect(() => {
     const fetchProjects = async () => {
       const res = await axios.post('/api/getAllProjects');
-      console.log(res.data)
       setProjects(res.data);
     }
-    console.log(user?.sub)
     fetchProjects();
   }, []);
 
