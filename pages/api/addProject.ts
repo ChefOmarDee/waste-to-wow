@@ -69,10 +69,10 @@ export default async function handler(
 
     const options = { wtimeout: 25000 };
     await newProject.save(options);
-    res.status(200).json({ message: 'Product created successfully' });
+    res.status(200).json({ message: 'Project created successfully' });
   } catch (error) {
     console.error(error);
-    res.status(400).json({ message: 'Error creating product' });
+    res.status(400).json({ message: 'Error creating project' });
   }
 }
   else{

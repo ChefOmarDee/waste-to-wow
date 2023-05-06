@@ -47,7 +47,7 @@ export default async function handler(
     res.status(200).send(newProject)
   } catch (error) {
     console.error(error);
-    res.status(400).json({ message: 'Error creating product' });
+    res.status(400).json({ message: 'Error creating project' });
   }
 }
   else{

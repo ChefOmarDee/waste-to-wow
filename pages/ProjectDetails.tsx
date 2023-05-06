@@ -42,7 +42,7 @@ const ProjectDetail=()=>{
       }, [data.projectMainImage]);
 
     return(
-    <div className="flex flex-col md:flex-row justify-center itesms-center py-12">
+    <div className="flex flex-col md:flex-row justify-center text-white itesms-center py-12">
       <div className="md:w-1/2 p-4">
         <img
           src={`https://chefomardee-testing3.s3.amazonaws.com/${projectMainImage}`}
@@ -50,7 +50,7 @@ const ProjectDetail=()=>{
           style={{ width: "100%" }}
         />
         <div className="flex flex-wrap justify-center mt-4">
-          {Array.isArray(projectImages) && // type guard to check if data.productImage is an array
+          {Array.isArray(projectImages) && // type guard to check if data.projectImage is an array
             projectImages.map((image, index) => (
               <div key={index} className="relative">
       <img
@@ -64,26 +64,23 @@ const ProjectDetail=()=>{
       </div>
       <div className="md:w-1/2 p-4 flex flex-col justify-center items-center md:items-mid item-center">
       <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-4 h-screen text-black">
-        <div className="w-full px-3 py-2 border border-gray-300 rounded-md placeholder:text-black-400">
+        <div className="w-full px-3 py-2 border border-gray-300 rounded-md text-white">
             {projectName}
         </div>
         <textarea
           value={projectSteps}
-          placeholder="Product Description"
-          className="w-full px-3 py-2 border border-black-300 rounded-md"
+          placeholder="Project Description"
+          className="w-full px-3 py-12 border border-black-300 text-white rounded-md"
         />
           <div
           className="w-full px-3 py-2 border border-black-300 rounded-md"
         >
         <ul className="list-disc list-inside mb-4">
         {data.projectMaterials.map((material, index) => (
-          <li key={index} className="text-gray-700">{material}</li>
+          <li key={index} className="text-white">{material}</li>
             ))}
         </ul>
         </div>
-        {/* <div className="w-full px-3 py-2 border border-gray-300 rounded-md appearance-none">
-        {userName}
-        </div> */}
       </form>
       </div>
     </div>

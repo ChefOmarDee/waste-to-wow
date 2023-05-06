@@ -30,7 +30,7 @@ interface Project {
   ];
   
 const AIProject=()=>{
-    const [projects, setProjects] = useState<Project[]>([]);
+    const [projects, setProjects] = useState<string>('');
     const [selectedMaterials, setSelectedMaterials] = useState<MaterialType[]>([]);
 
     const handleSubmit=(e:any)=>{
@@ -43,6 +43,7 @@ const AIProject=()=>{
             }
             let res= await axios.post('/api/hello', data)
             setProjects(res.data)
+            console.log(res.data)
         }
         postHandler()
       }
@@ -77,9 +78,10 @@ const AIProject=()=>{
               </label>
             </div>
           ))}
-          <button type="submit">Submit</button>
+          <center><button type="submit">Submit</button></center>
     </div>
     </form>
+    <center><p className="w-1/2">{projects}</p></center>
         </React.Fragment>
 
     )

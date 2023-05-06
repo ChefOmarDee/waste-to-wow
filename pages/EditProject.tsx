@@ -240,7 +240,7 @@ const EditProject = () => {
       <br/>
       <br/>
       <div className="md:w-1/2 p-4 flex flex-col justify-center items-center md:items-mid item-center">
-      <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-4 h-screen text-black">
+      <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center space-y-4 h-screen text-white">
         <input
           type="text"
           value={name}
@@ -282,7 +282,7 @@ const EditProject = () => {
             <span className="ml-2 text-black" id="file-chosen"></span>
           </div>
         </div>
-        <div className="relative w-full">
+        <div className="relative w-full text-white">
           <input type="file" onChange={handleMainImageUpload} className="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer" />
           <div className="relative z-40 w-full h-full px-3 py-2 border border-gray-300 rounded-md bg-white">
             <span className="text-black">Select Main Image</span>

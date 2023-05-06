@@ -114,13 +114,8 @@ const Add=()=>{
         await s3.upload(params).promise();
     }
     await postHandler()
-    // router.push('/ViewProduct')
   };
-    // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    //   event.preventDefault();
-    //   console.log({ projectName, selectedMaterials, projectSteps });
-    //   // Replace this with your own submission logic
-    // };
+
 
     const handleMaterialChange = (material: MaterialType) => {
         if (selectedMaterials.includes(material)) {
@@ -165,6 +160,7 @@ return(
             </div>
           ))}
   </div>
+  <center>
   <div className="mb-4">
     <label htmlFor="project-steps" className="text-center block font-medium mb-2">
       Project Steps:
@@ -173,7 +169,7 @@ return(
       id="project-steps"
       value={projectSteps}
       onChange={(e) => setProjectSteps(e.target.value)}
-      className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2 rounded-md shadow-sm"
+      className="border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 block w-full p-8 rounded-md shadow-sm"
     />
   </div>
   <div className="relative w-1/2">
@@ -183,6 +179,7 @@ return(
       <span className="ml-2 text-black" id="file-chosen"></span>
     </div>
   </div>
+  <br/>
   <div className="relative w-1/2">
     <input type="file" onChange={handleMainImageUpload} className="absolute inset-0 z-50 w-full h-full opacity-0 cursor-pointer" />
     <div className="relative z-40 w-full h-full px-3 py-2 border border-gray-300 rounded-md bg-white">
@@ -190,6 +187,8 @@ return(
       <span className="ml-2 text-black" id="file-chosen"></span>
     </div>
   </div>
+  </center>
+  <br/>
   <div className="flex justify-center">
     <button type="submit" className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
       Submit

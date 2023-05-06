@@ -15,5 +15,5 @@ const completion = await openai.createCompletion({
 
 console.log(completion.data.choices[0].text);
 
-  res.status(200).json({ name: 'John Doe' })
+  res.status(200).send(completion.data.choices[0].text)
 }
